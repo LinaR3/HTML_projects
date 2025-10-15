@@ -76,22 +76,112 @@
             <h2 id="Proyectos">Proyectos</h2>
 
             <p> Proyecto Generador de excusas
-                <img src="Projects/Portafolio laboral/multimedia/Imagen portafolio/10km de seriedad.png" alt="10km de seriedad"
-                width="400" height="400">
             </p>
-            <p>...</p>
+            <p><img src="Projects/Portafolio laboral/multimedia/Imagen portafolio/10km de seriedad.png"
+                    alt="10km de seriedad" width="400" height="400">
+            </p>
+            <p>.<iframe width="560" height="315" src="https://www.youtube.com/embed/Vk15Jbpp6mI?si=PvlEh-GoNgW_F9oz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
         </article>
         <article>
             <h2 id="Educacion">Educacion</h2>
             <p>
                 Educacion
             </p>
-            <p>...</p>
-            <p>...</p>
+            <table border="1">
+                <caption>Mi Formación Académica</caption>
+                <thead>
+                    <tr>
+                        <th>Institución</th>
+                        <th>Título o Certificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TIC - Software developer</td>
+                        <td>Full Stack Developer</td>
+                    </tr>
+                    <tr>
+                        <td>Bootcamp</td>
+                        <td>Software developer</td>
+                    </tr>
+                    <tr>
+                        <td>Escuela de audio y Sonido</td>
+                        <td>Producción Musical</td>
+                    </tr>
+                    <tr>
+                        <td>Dj academy</td>
+                        <td>Dj</td>
+                    </tr>
+                    <tr>
+                        <td>Universidad de la Salle</td>
+                        <td>Trabajo social</td>
+                    </tr>
+                </tbody>
+            </table>
         </article>
     </main>
-    <hr>
 
+    <hr>
+    <aside>
+        <h3>Redes Sociales</h3>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/linareina/">Linkedin</a></li>
+            <li><a href="https://github.com/LinaR3">GitHub</a></li>
+        </ul>
+    </aside>
+    <hr>
+    <article>
+        <h2>Contacto</h2>
+        <p>¿Te gustaría contactarme? Llena el siguiente formulario.</p>
+
+        <form action="/enviar" method="POST">
+
+            <fieldset>
+                <legend>Información personal</legend>
+
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="ciudad">Ciudad:</label>
+                    <select id="ciudad" name="ciudad">
+                        <option value="">-- Selecciona --</option>
+                        <option value="medellin">Medellín</option>
+                        <option value="bogota">Bogotá</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tu mensaje</legend>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+            </fieldset>
+
+            <div>
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los términos y condiciones</label>
+            </div>
+
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </article>
+    <hr>
+<article>
+    <h2> Contactame en redes sociales o en medellin. </h2> 
+    <p> Ubicacion:</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4025215175316!2d-75.56072082405015!3d6.210523226719291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44283049ed0093%3A0xb70ce4c541414845!2sMuseum%20Pablo%20Escobar!5e0!3m2!1ses!2sco!4v1760565158248!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</article>
 </body>
 
 </html>

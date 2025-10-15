@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass HTML - Bootcamp de Programación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            padding: 40px;
+            min-height: 600px;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .code-container {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .code-line {
+            font-family: 'Courier New', monospace;
+            color: #f8f8f2;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+        
+        .comment {
+            color: #6dd46d;
+            font-style: italic;
+        }
+        
+        .tag {
+            color: #ff79c6;
+        }
+        
+        .attribute {
+            color: #8be9fd;
+        }
+        
+        .value {
+            color: #f1fa8c;
+        }
+        
+        .text-content {
+            color: #f8f8f2;
+        }
+        
+        .example-box {
+            background: #f0f4ff;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            text-align: center;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+        
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .preview-box {
+            border: 2px dashed #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background: white;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- SLIDE 1: PORTADA -->
+        <div class="slide active">
+            <h1>🎓 Masterclass HTML</h1>
+            <h2 style="text-align: center; border: none;">Bootcamp de Programación Nivel Básico</h2>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 1.3em; color: #555; margin-bottom: 30px;">
+                    <span class="emoji">🚀</span> Del Cero al Héroe en HTML
+                </p>
+                <p style="font-size: 1.1em; color: #777; margin-bottom: 20px;">
+                    Aprende a crear páginas web desde cero con ejemplos prácticos
+                </p>
+            </div>
+            
+            <div class="tip-box" style="margin-top: 50px;">
+                <h3>📋 ¿Qué aprenderás hoy?</h3>
+                <ul>
+                    <li><strong>Estructura HTML5</strong> - La base de toda página web</li>
+                    <li><strong>Contenido y Texto</strong> - Párrafos, listas y organización</li>
+                    <li><strong>Enlaces</strong> - Conecta tu sitio con el mundo</li>
+                    <li><strong>Multimedia</strong> - Imágenes, videos y audio</li>
+                    <li><strong>Formularios</strong> - Interactúa con tus usuarios</li>
+                    <li><strong>Tablas</strong> - Organiza datos de manera efectiva</li>
+                    <li><strong>Elementos Semánticos</strong> - HTML profesional</li>
+                    <li><strong>Proyecto Final</strong> - Integra todo lo aprendido</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 1.2em; color: #667eea; font-weight: bold;">
+                    ¡Comencemos este increíble viaje! 🎉
+                </p>
+            </div>
+            
+            <div class="navigation">
+                <button disabled>⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 2: ESTRUCTURA BÁSICA HTML -->
+        <div class="slide">
+            <h2>📄 Estructura Básica de HTML5</h2>
+            
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Todo documento HTML debe tener esta estructura fundamental:
+            </p>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Esta línea le dice al navegador que usaremos HTML5 */</span></div>
+<div class="code-line"><span class="tag">&lt;!DOCTYPE html&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Etiqueta raíz que contiene todo el documento, lang="es" indica idioma español */</span></div>
+<div class="code-line"><span class="tag">&lt;html</span> <span class="attribute">lang</span>=<span class="value">"es"</span><span class="tag">&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 HEAD contiene información invisible: metadatos, título, estilos */</span></div>
+<div class="code-line"><span class="tag">&lt;head&gt;</span></div>
+<div class="code-line">    <span class="comment">/* 👉 UTF-8 permite usar acentos, ñ y caracteres especiales */</span></div>
+<div class="code-line">    <span class="tag">&lt;meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 Viewport hace que tu sitio se vea bien en móviles y tablets */</span></div>
+<div class="code-line">    <span class="tag">&lt;meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 El título que aparece en la pestaña del navegador */</span></div>
+<div class="code-line">    <span class="tag">&lt;title&gt;</span><span class="text-content">Mi Primera Página Web</span><span class="tag">&lt;/title&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/head&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 BODY contiene todo el contenido VISIBLE de tu página */</span></div>
+<div class="code-line"><span class="tag">&lt;body&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 H1 es el título principal - Solo UNO por página */</span></div>
+<div class="code-line">    <span class="tag">&lt;h1&gt;</span><span class="text-content">¡Hola Mundo!</span><span class="tag">&lt;/h1&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 P es para párrafos de texto */</span></div>
+<div class="code-line">    <span class="tag">&lt;p&gt;</span><span class="text-content">Bienvenido a mi sitio web.</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line"><span class="tag">&lt;/body&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/html&gt;</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>💡 Reglas de Oro</h3>
+                <ul>
+                    <li>Siempre <strong>abre</strong> y <strong>cierra</strong> tus etiquetas</li>
+                    <li>Solo <strong>UN</strong> &lt;h1&gt; por página</li>
+                    <li>Todo lo visible va dentro de &lt;body&gt;</li>
+                    <li>Usa <strong>indentación</strong> (espacios) para organizar el código</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 3: CONTENIDO Y TEXTO -->
+        <div class="slide">
+            <h2>📝 Contenido y Texto</h2>
+            
+            <h3>Encabezados (Títulos)</h3>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 H1 al H6: Del más importante al menos importante */</span></div>
+<div class="code-line"><span class="tag">&lt;h1&gt;</span><span class="text-content">Título Principal (H1) - Solo uno por página</span><span class="tag">&lt;/h1&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;h2&gt;</span><span class="text-content">Sección Principal (H2)</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;h3&gt;</span><span class="text-content">Subsección (H3)</span><span class="tag">&lt;/h3&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;h4&gt;</span><span class="text-content">Detalle (H4)</span><span class="tag">&lt;/h4&gt;</span></div>
+            </div>
+            
+            <h3>Párrafos y Listas</h3>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Párrafo simple - Cada P se separa automáticamente */</span></div>
+<div class="code-line"><span class="tag">&lt;p&gt;</span><span class="text-content">Este es un párrafo de texto.</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Lista NO ordenada (viñetas) - Cuando el orden NO importa */</span></div>
+<div class="code-line"><span class="tag">&lt;ul&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Manzanas</span><span class="tag">&lt;/li&gt;</span>   <span class="comment">/* Lista de compras */</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Peras</span><span class="tag">&lt;/li&gt;</span>      <span class="comment">/* El orden no importa */</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Naranjas</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Lista ORDENADA (números) - Cuando el orden SÍ importa */</span></div>
+<div class="code-line"><span class="tag">&lt;ol&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Hervir agua</span><span class="tag">&lt;/li&gt;</span>      <span class="comment">/* Paso 1 de receta */</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Agregar pasta</span><span class="tag">&lt;/li&gt;</span>    <span class="comment">/* Paso 2 - orden lógico */</span></div>
+<div class="code-line">    <span class="tag">&lt;li&gt;</span><span class="text-content">Cocinar 10 min</span><span class="tag">&lt;/li&gt;</span> <span class="comment">/* Paso 3 */</span></div>
+<div class="code-line"><span class="tag">&lt;/ol&gt;</span></div>
+            </div>
+            
+            <div class="example-box">
+                <h3>🎯 ¿Cuándo usar cada lista?</h3>
+                <ul>
+                    <li><strong>&lt;ul&gt;</strong> (No ordenada): Ingredientes, características, hobbies</li>
+                    <li><strong>&lt;ol&gt;</strong> (Ordenada): Recetas, instrucciones, pasos</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 4: ENLACES -->
+        <div class="slide">
+            <h2>🔗 Enlaces (Links)</h2>
+            
+            <p style="font-size: 1.1em;">Los enlaces conectan páginas y sitios web. Son el corazón de internet.</p>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Enlace EXTERNO - A otro sitio web (siempre con https://) */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://www.google.com"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">Ir a Google</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"><span class="comment">/* target="_blank" abre en nueva pestaña - úsalo solo para enlaces externos */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Enlace INTERNO - A otra página de tu sitio (sin https://) */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"contacto.html"</span><span class="tag">&gt;</span><span class="text-content">Contáctanos</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"><span class="comment">/* Se abre en la misma pestaña - no uses target="_blank" aquí */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Enlace de ANCLA - Salta a una sección de la misma página */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"#servicios"</span><span class="tag">&gt;</span><span class="text-content">Ver Servicios</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"><span class="comment">/* El # busca un elemento con id="servicios" en la página */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 La sección destino del ancla necesita un ID */</span></div>
+<div class="code-line"><span class="tag">&lt;h2</span> <span class="attribute">id</span>=<span class="value">"servicios"</span><span class="tag">&gt;</span><span class="text-content">Nuestros Servicios</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Enlace de EMAIL - Abre el programa de correo */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"mailto:info@ejemplo.com"</span><span class="tag">&gt;</span><span class="text-content">Enviar Email</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Enlace de TELÉFONO - Llama directamente en móviles */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"tel:+573001234567"</span><span class="tag">&gt;</span><span class="text-content">Llamar: 300 123 4567</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"><span class="comment">/* Incluye código de país: +57 para Colombia */</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>💡 Reglas para Enlaces</h3>
+                <ul>
+                    <li><strong>href</strong> es OBLIGATORIO - sin él no funciona</li>
+                    <li>Enlaces externos → https:// + target="_blank"</li>
+                    <li>Enlaces internos → solo nombre.html</li>
+                    <li>Anclas → # + id del elemento</li>
+                    <li>Usa texto descriptivo: "Ver Proyectos" en lugar de "clic aquí"</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 5: MULTIMEDIA - IMÁGENES -->
+        <div class="slide">
+            <h2>🖼️ Multimedia - Imágenes</h2>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Imagen desde INTERNET (URL completa) */</span></div>
+<div class="code-line"><span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"https://via.placeholder.com/300"</span></div>
+<div class="code-line">     <span class="attribute">alt</span>=<span class="value">"Descripción de la imagen"</span></div>
+<div class="code-line">     <span class="attribute">width</span>=<span class="value">"300"</span></div>
+<div class="code-line">     <span class="attribute">height</span>=<span class="value">"200"</span><span class="tag">&gt;</span></div>
+<div class="code-line"><span class="comment">/* src = ubicación de la imagen (source) */</span></div>
+<div class="code-line"><span class="comment">/* alt = texto alternativo (OBLIGATORIO para accesibilidad) */</span></div>
+<div class="code-line"><span class="comment">/* width/height = dimensiones en píxeles */</span></div>
+<div class="code-line"><span class="comment">/* ⚠️ La etiqueta img NO se cierra con &lt;/img&gt; */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Imagen LOCAL (de tu computadora) */</span></div>
+<div class="code-line"><span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"imagenes/logo.png"</span> <span class="attribute">alt</span>=<span class="value">"Logo de mi empresa"</span><span class="tag">&gt;</span></div>
+<div class="code-line"><span class="comment">/* Ruta relativa: carpeta "imagenes" / archivo "logo.png" */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Imagen con figura y pie de foto (profesional) */</span></div>
+<div class="code-line"><span class="tag">&lt;figure&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"foto.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Paisaje de montaña"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;figcaption&gt;</span><span class="text-content">Hermosa vista de las montañas</span><span class="tag">&lt;/figcaption&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/figure&gt;</span></div>
+<div class="code-line"><span class="comment">/* figure agrupa imagen + descripción */</span></div>
+            </div>
+            
+            <h3>Videos y Audio</h3>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Video de YOUTUBE (iframe) - Copiar código de "Compartir > Insertar" */</span></div>
+<div class="code-line"><span class="tag">&lt;iframe</span> <span class="attribute">width</span>=<span class="value">"560"</span> <span class="attribute">height</span>=<span class="value">"315"</span></div>
+<div class="code-line">        <span class="attribute">src</span>=<span class="value">"https://www.youtube.com/embed/VIDEO_ID"</span></div>
+<div class="code-line">        <span class="attribute">title</span>=<span class="value">"Tutorial de HTML"</span></div>
+<div class="code-line">        <span class="attribute">allowfullscreen</span><span class="tag">&gt;&lt;/iframe&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 Audio LOCAL con controles */</span></div>
+<div class="code-line"><span class="tag">&lt;audio</span> <span class="attribute">controls</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;source</span> <span class="attribute">src</span>=<span class="value">"musica.mp3"</span> <span class="attribute">type</span>=<span class="value">"audio/mpeg"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="text-content">Tu navegador no soporta audio.</span></div>
+<div class="code-line"><span class="tag">&lt;/audio&gt;</span></div>
+<div class="code-line"><span class="comment">/* controls muestra botones de play/pause */</span></div>
+            </div>
+            
+            <div class="warning-box">
+                <h3>⚠️ Importante</h3>
+                <ul>
+                    <li>Siempre incluye el atributo <strong>alt</strong> en imágenes</li>
+                    <li>Optimiza imágenes (no más de 500KB)</li>
+                    <li>Formatos recomendados: JPG (fotos), PNG (logos), SVG (iconos)</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 6: FORMULARIOS -->
+        <div class="slide">
+            <h2>📋 Formularios</h2>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Estructura básica de un formulario */</span></div>
+<div class="code-line"><span class="tag">&lt;form&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 LABEL conectado con INPUT mediante for e id */</span></div>
+<div class="code-line">    <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"nombre"</span><span class="tag">&gt;</span><span class="text-content">Nombre:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"nombre"</span> <span class="attribute">name</span>=<span class="value">"nombre"</span> <span class="attribute">required</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="comment">/* type="text" = campo de texto normal */</span></div>
+<div class="code-line">    <span class="comment">/* required = campo obligatorio */</span></div>
+<div class="code-line">    <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 INPUT tipo EMAIL (valida formato automáticamente) */</span></div>
+<div class="code-line">    <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"email"</span><span class="tag">&gt;</span><span class="text-content">Email:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;input</span> <span class="attribute">type</span>=<span class="value">"email"</span> <span class="attribute">id</span>=<span class="value">"email"</span> <span class="attribute">name</span>=<span class="value">"email"</span> <span class="attribute">required</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 SELECT - Lista desplegable */</span></div>
+<div class="code-line">    <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"ciudad"</span><span class="tag">&gt;</span><span class="text-content">Ciudad:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;select</span> <span class="attribute">id</span>=<span class="value">"ciudad"</span> <span class="attribute">name</span>=<span class="value">"ciudad"</span><span class="tag">&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;option</span> <span class="attribute">value</span>=<span class="value">""</span><span class="tag">&gt;</span><span class="text-content">-- Selecciona --</span><span class="tag">&lt;/option&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;option</span> <span class="attribute">value</span>=<span class="value">"medellin"</span><span class="tag">&gt;</span><span class="text-content">Medellín</span><span class="tag">&lt;/option&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;option</span> <span class="attribute">value</span>=<span class="value">"bogota"</span><span class="tag">&gt;</span><span class="text-content">Bogotá</span><span class="tag">&lt;/option&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/select&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 TEXTAREA - Área de texto grande */</span></div>
+<div class="code-line">    <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"mensaje"</span><span class="tag">&gt;</span><span class="text-content">Mensaje:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;textarea</span> <span class="attribute">id</span>=<span class="value">"mensaje"</span> <span class="attribute">name</span>=<span class="value">"mensaje"</span> <span class="attribute">rows</span>=<span class="value">"4"</span><span class="tag">&gt;&lt;/textarea&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 CHECKBOX - Múltiples opciones */</span></div>
+<div class="code-line">    <span class="tag">&lt;input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">id</span>=<span class="value">"terminos"</span> <span class="attribute">name</span>=<span class="value">"terminos"</span> <span class="attribute">required</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"terminos"</span><span class="tag">&gt;</span><span class="text-content">Acepto términos</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 BOTÓN de envío */</span></div>
+<div class="code-line">    <span class="tag">&lt;button</span> <span class="attribute">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span><span class="text-content">Enviar</span><span class="tag">&lt;/button&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line"><span class="tag">&lt;/form&gt;</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>💡 Reglas de Formularios</h3>
+                <ul>
+                    <li>Siempre usa <strong>label</strong> con <strong>for</strong> conectado al <strong>id</strong> del input</li>
+                    <li><strong>name</strong> es obligatorio para enviar datos</li>
+                    <li><strong>required</strong> hace el campo obligatorio</li>
+                    <li>Usa <strong>type</strong> correcto: email, tel, number, date, etc.</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 7: TABLAS -->
+        <div class="slide">
+            <h2>📊 Tablas</h2>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Estructura completa de una tabla profesional */</span></div>
+<div class="code-line"><span class="tag">&lt;table</span> <span class="attribute">border</span>=<span class="value">"1"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 CAPTION - Título de la tabla */</span></div>
+<div class="code-line">    <span class="tag">&lt;caption&gt;</span><span class="text-content">Lista de Estudiantes</span><span class="tag">&lt;/caption&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 THEAD - Sección de encabezados */</span></div>
+<div class="code-line">    <span class="tag">&lt;thead&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;tr&gt;</span>  <span class="comment">/* TR = Table Row (fila) */</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="text-content">Nombre</span><span class="tag">&lt;/th&gt;</span>  <span class="comment">/* TH = Table Header (negrita y centrado) */</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="text-content">Edad</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="text-content">Ciudad</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/thead&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 TBODY - Sección de datos */</span></div>
+<div class="code-line">    <span class="tag">&lt;tbody&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;tr&gt;</span>  <span class="comment">/* Primera fila de datos */</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">Ana García</span><span class="tag">&lt;/td&gt;</span>  <span class="comment">/* TD = Table Data (celda normal) */</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">25</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">Medellín</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="tag">&lt;tr&gt;</span>  <span class="comment">/* Segunda fila de datos */</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">Carlos López</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">30</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;td&gt;</span><span class="text-content">Bogotá</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/tbody&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 TFOOT - Sección de totales (opcional) */</span></div>
+<div class="code-line">    <span class="tag">&lt;tfoot&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;tr&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="text-content">TOTAL</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="text-content">2 estudiantes</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;th&gt;</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/tfoot&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line"><span class="tag">&lt;/table&gt;</span></div>
+            </div>
+            
+            <div class="example-box">
+                <h3>📝 Jerarquía de Tabla</h3>
+                <ul>
+                    <li><strong>table</strong> → Contenedor principal</li>
+                    <li><strong>tr</strong> → Fila (Table Row)</li>
+                    <li><strong>th</strong> → Encabezado (Table Header) - negrita</li>
+                    <li><strong>td</strong> → Celda de datos (Table Data)</li>
+                    <li><strong>thead, tbody, tfoot</strong> → Organizan la tabla</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 8: ELEMENTOS SEMÁNTICOS -->
+        <div class="slide">
+            <h2>🏗️ Elementos Semánticos HTML5</h2>
+            
+            <p style="font-size: 1.1em;">Los elementos semánticos dan <strong>significado</strong> a las secciones de tu página.</p>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 Estructura semántica completa de una página */</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 HEADER - Cabecera del sitio (logo, menú principal) */</span></div>
+<div class="code-line"><span class="tag">&lt;header&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;h1&gt;</span><span class="text-content">Mi Sitio Web</span><span class="tag">&lt;/h1&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 NAV - Navegación principal */</span></div>
+<div class="code-line">    <span class="tag">&lt;nav&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;ul&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#inicio"</span><span class="tag">&gt;</span><span class="text-content">Inicio</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#servicios"</span><span class="tag">&gt;</span><span class="text-content">Servicios</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/nav&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/header&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 MAIN - Contenido principal ÚNICO de esta página */</span></div>
+<div class="code-line"><span class="tag">&lt;main&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 SECTION - Sección temática */</span></div>
+<div class="code-line">    <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"servicios"</span><span class="tag">&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h2&gt;</span><span class="text-content">Nuestros Servicios</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* 👉 ARTICLE - Contenido independiente y completo */</span></div>
+<div class="code-line">        <span class="tag">&lt;article&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;h3&gt;</span><span class="text-content">Desarrollo Web</span><span class="tag">&lt;/h3&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;p&gt;</span><span class="text-content">Creamos sitios web modernos...</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/article&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/section&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line">    <span class="comment">/* 👉 ASIDE - Contenido lateral/complementario */</span></div>
+<div class="code-line">    <span class="tag">&lt;aside&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h3&gt;</span><span class="text-content">Enlaces Relacionados</span><span class="tag">&lt;/h3&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;ul&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;</span><span class="text-content">Recurso 1</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;</span><span class="text-content">Recurso 2</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/aside&gt;</span></div>
+<div class="code-line">    </div>
+<div class="code-line"><span class="tag">&lt;/main&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* 👉 FOOTER - Pie de página (copyright, contacto) */</span></div>
+<div class="code-line"><span class="tag">&lt;footer&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;p&gt;</span><span class="text-content">© 2025 Mi Sitio Web</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;/footer&gt;</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>💡 ¿Por qué usar elementos semánticos?</h3>
+                <ul>
+                    <li><strong>SEO</strong>: Google entiende mejor tu contenido</li>
+                    <li><strong>Accesibilidad</strong>: Lectores de pantalla funcionan mejor</li>
+                    <li><strong>Legibilidad</strong>: Tu código es más fácil de entender</li>
+                    <li><strong>Profesional</strong>: Es el estándar de la industria</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 9: EJERCICIO INTEGRADOR -->
+        <div class="slide">
+            <h2>💪 Ejercicio Integrador Final</h2>
+            
+            <div class="example-box">
+                <h3>🎯 Proyecto: "Mi Portafolio Web Profesional"</h3>
+                <p>Crea una página HTML completa que incluya TODOS los elementos aprendidos.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h3>📋 Requisitos del Ejercicio</h3>
+                <p><strong>Tu página debe incluir:</strong></p>
+                <ol>
+                    <li><strong>Estructura HTML5 completa</strong> con DOCTYPE, html, head, body</li>
+                    <li><strong>Header</strong> con tu nombre en h1 y navegación (nav)</li>
+                    <li><strong>Main</strong> con 4 secciones:
+                        <ul>
+                            <li><strong>Sobre Mí</strong> - Párrafo + imagen tuya</li>
+                            <li><strong>Habilidades</strong> - Lista NO ordenada</li>
+                            <li><strong>Proyectos</strong> - 2 articles con descripción</li>
+                            <li><strong>Educación</strong> - Lista ORDENADA</li>
+                        </ul>
+                    </li>
+                    <li><strong>Aside</strong> con enlaces a redes sociales</li>
+                    <li><strong>Tabla</strong> con tus experiencias laborales/estudios</li>
+                    <li><strong>Formulario</strong> de contacto con: nombre, email, mensaje, botón enviar</li>
+                    <li><strong>Footer</strong> con copyright y enlaces de email/teléfono</li>
+                </ol>
+            </div>
+            
+            <div class="warning-box">
+                <h3>⚠️ Importante</h3>
+                <ul>
+                    <li>✅ Solo UN &lt;h1&gt; por página</li>
+                    <li>✅ Jerarquía correcta: h1 → h2 → h3</li>
+                    <li>✅ Todos los inputs con label conectado</li>
+                    <li>✅ Todas las imágenes con alt</li>
+                    <li>✅ Enlaces externos con target="_blank"</li>
+                    <li>✅ Código bien indentado</li>
+                </ul>
+            </div>
+            
+            <div class="example-box">
+                <h3>🎨 Estructura Visual</h3>
+                <pre style="font-family: monospace; background: #f8f9fa; padding: 15px; border-radius: 5px;">
+&lt;body&gt;
+  └── &lt;header&gt;
+       ├── &lt;h1&gt; Tu Nombre
+       └── &lt;nav&gt; Menú
+  
+  └── &lt;main&gt;
+       ├── &lt;section id="sobre-mi"&gt;
+       ├── &lt;section id="habilidades"&gt;
+       ├── &lt;section id="proyectos"&gt;
+       └── &lt;section id="educacion"&gt;
+  
+  └── &lt;aside&gt; Redes sociales
+  
+  └── &lt;section&gt; Tabla de experiencia
+  
+  └── &lt;section&gt; Formulario contacto
+  
+  └── &lt;footer&gt; Copyright + contacto
+&lt;/body&gt;
+                </pre>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-size: 1.3em; color: #667eea; font-weight: bold;">
+                    ¡Ahora practica! La siguiente slide tiene la solución completa 🚀
+                </p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter">Slide 9 de 11</div>
+                <button onclick="nextSlide()">Ver Solución ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 10: SOLUCIÓN PARTE 1 -->
+        <div class="slide">
+            <h2>✅ Solución del Ejercicio (Parte 1)</h2>
+            
+            <div class="code-container">
+<div class="code-line"><span class="comment">/* 👉 INICIO: Estructura HTML5 básica obligatoria */</span></div>
+<div class="code-line"><span class="tag">&lt;!DOCTYPE html&gt;</span>  <span class="comment">/* Declara HTML5 */</span></div>
+<div class="code-line"><span class="tag">&lt;html</span> <span class="attribute">lang</span>=<span class="value">"es"</span><span class="tag">&gt;</span>  <span class="comment">/* Idioma español */</span></div>
+<div class="code-line"><span class="tag">&lt;head&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span>  <span class="comment">/* Acentos y ñ */</span></div>
+<div class="code-line">    <span class="tag">&lt;meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span></div>
+<div class="code-line">    <span class="comment">/* 👆 Hace que se vea bien en móviles */</span></div>
+<div class="code-line">    <span class="tag">&lt;title&gt;</span><span class="text-content">Mi Portafolio - Juan Pérez</span><span class="tag">&lt;/title&gt;</span>  <span class="comment">/* Título en pestaña */</span></div>
+<div class="code-line"><span class="tag">&lt;/head&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="tag">&lt;body&gt;</span>  <span class="comment">/* Todo el contenido visible va aquí dentro */</span></div>
+<div class="code-line"></div>
+<div class="code-line">    <span class="comment">/* 👉 HEADER - Cabecera con título y navegación */</span></div>
+<div class="code-line">    <span class="tag">&lt;header&gt;</span></div>
+<div class="code-line">        <span class="comment">/* Solo UN h1 por página - el título más importante */</span></div>
+<div class="code-line">        <span class="tag">&lt;h1&gt;</span><span class="text-content">Juan Pérez - Desarrollador Web</span><span class="tag">&lt;/h1&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* 👉 NAV - Menú de navegación con anclas (#) */</span></div>
+<div class="code-line">        <span class="tag">&lt;nav&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;ul&gt;</span>  <span class="comment">/* Lista no ordenada para el menú */</span></div>
+<div class="code-line">                <span class="comment">/* Cada enlace salta a una sección con su id */</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#sobre-mi"</span><span class="tag">&gt;</span><span class="text-content">Sobre Mí</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#habilidades"</span><span class="tag">&gt;</span><span class="text-content">Habilidades</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#proyectos"</span><span class="tag">&gt;</span><span class="text-content">Proyectos</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#educacion"</span><span class="tag">&gt;</span><span class="text-content">Educación</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="value">"#contacto"</span><span class="tag">&gt;</span><span class="text-content">Contacto</span><span class="tag">&lt;/a&gt;&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/nav&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/header&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">    <span class="comment">/* 👉 MAIN - Contenido principal único de esta página */</span></div>
+<div class="code-line">    <span class="tag">&lt;main&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* 👉 SECCIÓN 1: Sobre Mí */</span></div>
+<div class="code-line">        <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"sobre-mi"</span><span class="tag">&gt;</span>  <span class="comment">/* El id conecta con el href del nav */</span></div>
+<div class="code-line">            <span class="tag">&lt;h2&gt;</span><span class="text-content">Sobre Mí</span><span class="tag">&lt;/h2&gt;</span>  <span class="comment">/* h2 para secciones principales */</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* Imagen con todos los atributos importantes */</span></div>
+<div class="code-line">            <span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"imagenes/perfil.jpg"</span></div>
+<div class="code-line">                 <span class="attribute">alt</span>=<span class="value">"Foto de Juan Pérez sonriendo"</span>  <span class="comment">/* alt obligatorio */</span></div>
+<div class="code-line">                 <span class="attribute">width</span>=<span class="value">"300"</span>  <span class="comment">/* Ancho en píxeles */</span></div>
+<div class="code-line">                 <span class="attribute">height</span>=<span class="value">"300"</span><span class="tag">&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* Párrafo con descripción personal */</span></div>
+<div class="code-line">            <span class="tag">&lt;p&gt;</span></div>
+<div class="code-line">                <span class="text-content">Soy desarrollador web con 2 años de experiencia en HTML, CSS </span></div>
+<div class="code-line">                <span class="text-content">y JavaScript. Me apasiona crear sitios web modernos y funcionales </span></div>
+<div class="code-line">                <span class="text-content">que brinden excelente experiencia de usuario.</span></div>
+<div class="code-line">            <span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/section&gt;</span></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #667eea; font-weight: bold;">Continúa en la siguiente slide...</p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 11: SOLUCIÓN PARTE 2 -->
+        <div class="slide">
+            <h2>✅ Solución del Ejercicio (Parte 2)</h2>
+            
+            <div class="code-container">
+<div class="code-line">        <span class="comment">/* 👉 SECCIÓN 2: Habilidades (lista NO ordenada) */</span></div>
+<div class="code-line">        <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"habilidades"</span><span class="tag">&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;h2&gt;</span><span class="text-content">Habilidades Técnicas</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* ul porque el orden no importa - son habilidades independientes */</span></div>
+<div class="code-line">            <span class="tag">&lt;ul&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">HTML5 y estructuras semánticas</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">CSS3 y diseño responsive</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">JavaScript y DOM manipulation</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Git y control de versiones</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Metodologías ágiles</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/section&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">        <span class="comment">/* 👉 SECCIÓN 3: Proyectos (con articles) */</span></div>
+<div class="code-line">        <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"proyectos"</span><span class="tag">&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;h2&gt;</span><span class="text-content">Proyectos Destacados</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* article = contenido independiente y completo */</span></div>
+<div class="code-line">            <span class="tag">&lt;article&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;h3&gt;</span><span class="text-content">Tienda Online E-Commerce</span><span class="tag">&lt;/h3&gt;</span>  <span class="comment">/* h3 para subtítulos */</span></div>
+<div class="code-line">                <span class="tag">&lt;p&gt;</span></div>
+<div class="code-line">                    <span class="text-content">Desarrollé una tienda virtual completa con carrito de compras, </span></div>
+<div class="code-line">                    <span class="text-content">sistema de pagos y panel de administración.</span></div>
+<div class="code-line">                <span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">                <span class="comment">/* Enlace externo a GitHub - se abre en nueva pestaña */</span></div>
+<div class="code-line">                <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://github.com/juanperez/tienda"</span></div>
+<div class="code-line">                   <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">Ver en GitHub</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/article&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="tag">&lt;article&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;h3&gt;</span><span class="text-content">Blog Personal Responsivo</span><span class="tag">&lt;/h3&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;p&gt;</span></div>
+<div class="code-line">                    <span class="text-content">Blog con diseño moderno, optimizado para móviles y tabletas. </span></div>
+<div class="code-line">                    <span class="text-content">Incluye sistema de comentarios y búsqueda.</span></div>
+<div class="code-line">                <span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://github.com/juanperez/blog"</span></div>
+<div class="code-line">                   <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">Ver en GitHub</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/article&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/section&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">        <span class="comment">/* 👉 SECCIÓN 4: Educación (lista ORDENADA) */</span></div>
+<div class="code-line">        <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"educacion"</span><span class="tag">&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;h2&gt;</span><span class="text-content">Educación y Formación</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* ol porque va en orden cronológico (más reciente primero) */</span></div>
+<div class="code-line">            <span class="tag">&lt;ol&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Bootcamp Full Stack - Código Colombia (2024)</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Curso JavaScript Avanzado - Platzi (2023)</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Técnico en Desarrollo Web - SENA (2022)</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;li&gt;</span><span class="text-content">Bachiller - Colegio San José (2020)</span><span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/ol&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/section&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">    <span class="tag">&lt;/main&gt;</span>  <span class="comment">/* Cierra el contenido principal */</span></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #667eea; font-weight: bold;">Continúa en la siguiente slide...</p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter">Slide 11 de 14</div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 12: SOLUCIÓN PARTE 3 -->
+        <div class="slide">
+            <h2>✅ Solución del Ejercicio (Parte 3)</h2>
+            
+            <div class="code-container">
+<div class="code-line">    <span class="comment">/* 👉 ASIDE - Contenido complementario (redes sociales) */</span></div>
+<div class="code-line">    <span class="tag">&lt;aside&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h2&gt;</span><span class="text-content">Encuéntrame en</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* Lista de enlaces a redes sociales - todos externos */</span></div>
+<div class="code-line">        <span class="tag">&lt;ul&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;</span></div>
+<div class="code-line">                <span class="comment">/* target="_blank" abre en nueva pestaña */</span></div>
+<div class="code-line">                <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://github.com/juanperez"</span></div>
+<div class="code-line">                   <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">GitHub</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://linkedin.com/in/juanperez"</span></div>
+<div class="code-line">                   <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">LinkedIn</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;li&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://twitter.com/juanperez"</span></div>
+<div class="code-line">                   <span class="attribute">target</span>=<span class="value">"_blank"</span><span class="tag">&gt;</span><span class="text-content">Twitter</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/li&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/ul&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/aside&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">    <span class="comment">/* 👉 SECCIÓN: Tabla de Experiencia Laboral */</span></div>
+<div class="code-line">    <span class="tag">&lt;section&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h2&gt;</span><span class="text-content">Experiencia Laboral</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="tag">&lt;table</span> <span class="attribute">border</span>=<span class="value">"1"</span><span class="tag">&gt;</span>  <span class="comment">/* border="1" muestra líneas */</span></div>
+<div class="code-line">            <span class="comment">/* caption = título de la tabla */</span></div>
+<div class="code-line">            <span class="tag">&lt;caption&gt;</span><span class="text-content">Historial de Trabajo 2022-2024</span><span class="tag">&lt;/caption&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* thead = sección de encabezados */</span></div>
+<div class="code-line">            <span class="tag">&lt;thead&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;tr&gt;</span>  <span class="comment">/* tr = fila */</span></div>
+<div class="code-line">                    <span class="tag">&lt;th&gt;</span><span class="text-content">Empresa</span><span class="tag">&lt;/th&gt;</span>  <span class="comment">/* th = encabezado (negrita) */</span></div>
+<div class="code-line">                    <span class="tag">&lt;th&gt;</span><span class="text-content">Cargo</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;th&gt;</span><span class="text-content">Período</span><span class="tag">&lt;/th&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/thead&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* tbody = sección de datos */</span></div>
+<div class="code-line">            <span class="tag">&lt;tbody&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;tr&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">Tech Solutions</span><span class="tag">&lt;/td&gt;</span>  <span class="comment">/* td = celda normal */</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">Desarrollador Frontend</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">2023 - Presente</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;tr&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">Digital Agency</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">Desarrollador Junior</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">                    <span class="tag">&lt;td&gt;</span><span class="text-content">2022 - 2023</span><span class="tag">&lt;/td&gt;</span></div>
+<div class="code-line">                <span class="tag">&lt;/tr&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;/tbody&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/table&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/section&gt;</span></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="color: #667eea; font-weight: bold;">Última parte en la siguiente slide...</p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter">Slide 12 de 14</div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 13: SOLUCIÓN PARTE 4 (FINAL) -->
+        <div class="slide">
+            <h2>✅ Solución del Ejercicio (Parte 4 - Final)</h2>
+            
+            <div class="code-container">
+<div class="code-line">    <span class="comment">/* 👉 SECCIÓN: Formulario de Contacto */</span></div>
+<div class="code-line">    <span class="tag">&lt;section</span> <span class="attribute">id</span>=<span class="value">"contacto"</span><span class="tag">&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h2&gt;</span><span class="text-content">Contáctame</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="tag">&lt;form&gt;</span>  <span class="comment">/* Contenedor del formulario */</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* Label conectado con input mediante for e id */</span></div>
+<div class="code-line">            <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"nombre"</span><span class="tag">&gt;</span><span class="text-content">Nombre completo:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;input</span> <span class="attribute">type</span>=<span class="value">"text"</span></div>
+<div class="code-line">                   <span class="attribute">id</span>=<span class="value">"nombre"</span>  <span class="comment">/* id conecta con el for del label */</span></div>
+<div class="code-line">                   <span class="attribute">name</span>=<span class="value">"nombre"</span>  <span class="comment">/* name es obligatorio para enviar datos */</span></div>
+<div class="code-line">                   <span class="attribute">required</span><span class="tag">&gt;</span>  <span class="comment">/* Campo obligatorio */</span></div>
+<div class="code-line">            <span class="tag">&lt;br&gt;&lt;br&gt;</span>  <span class="comment">/* Saltos de línea para separar */</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"email"</span><span class="tag">&gt;</span><span class="text-content">Email:</span><span class="tag">&lt;/label&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;input</span> <span class="attribute">type</span>=<span class="value">"email"</span>  <span class="comment">/* type="email" valida formato automáticamente */</span></div>
+<div class="code-line">                   <span class="attribute">id</span>=<span class="value">"email"</span></div>
+<div class="code-line">                   <span class="attribute">name</span>=<span class="value">"email"</span></div>
+<div class="code-line">                   <span class="attribute">required</span><span class="tag">&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="value">"mensaje"</span><span class="tag">&gt;</span><span class="text-content">Mensaje:</span><span class="tag">&lt;/label&gt;&lt;br&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;textarea</span> <span class="attribute">id</span>=<span class="value">"mensaje"</span></div>
+<div class="code-line">                      <span class="attribute">name</span>=<span class="value">"mensaje"</span></div>
+<div class="code-line">                      <span class="attribute">rows</span>=<span class="value">"5"</span>  <span class="comment">/* Altura en filas */</span></div>
+<div class="code-line">                      <span class="attribute">cols</span>=<span class="value">"50"</span>  <span class="comment">/* Ancho en columnas */</span></div>
+<div class="code-line">                      <span class="attribute">required</span><span class="tag">&gt;&lt;/textarea&gt;</span></div>
+<div class="code-line">            <span class="tag">&lt;br&gt;&lt;br&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">            <span class="comment">/* Botón de envío */</span></div>
+<div class="code-line">            <span class="tag">&lt;button</span> <span class="attribute">type</span>=<span class="value">"submit"</span><span class="tag">&gt;</span><span class="text-content">Enviar Mensaje</span><span class="tag">&lt;/button&gt;</span></div>
+<div class="code-line">            </div>
+<div class="code-line">        <span class="tag">&lt;/form&gt;</span></div>
+<div class="code-line">    <span class="tag">&lt;/section&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line">    <span class="comment">/* 👉 FOOTER - Pie de página con copyright y contacto */</span></div>
+<div class="code-line">    <span class="tag">&lt;footer&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;h2&gt;</span><span class="text-content">Información de Contacto</span><span class="tag">&lt;/h2&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* Enlaces de email y teléfono */</span></div>
+<div class="code-line">        <span class="tag">&lt;p&gt;</span></div>
+<div class="code-line">            <span class="text-content">Email: </span></div>
+<div class="code-line">            <span class="comment">/* mailto: abre programa de correo */</span></div>
+<div class="code-line">            <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"mailto:juan.perez@email.com"</span><span class="tag">&gt;</span><span class="text-content">juan.perez@email.com</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="tag">&lt;p&gt;</span></div>
+<div class="code-line">            <span class="text-content">Teléfono: </span></div>
+<div class="code-line">            <span class="comment">/* tel: permite llamar desde móviles - incluye código país +57 */</span></div>
+<div class="code-line">            <span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"tel:+573001234567"</span><span class="tag">&gt;</span><span class="text-content">300 123 4567</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line">        <span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">        <span class="comment">/* Párrafo de copyright - &amp;copy; es el símbolo © */</span></div>
+<div class="code-line">        <span class="tag">&lt;p&gt;</span><span class="text-content">&amp;copy; 2025 Juan Pérez. Todos los derechos reservados.</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line">        </div>
+<div class="code-line">    <span class="tag">&lt;/footer&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="tag">&lt;/body&gt;</span>  <span class="comment">/* Cierra el body */</span></div>
+<div class="code-line"><span class="tag">&lt;/html&gt;</span>  <span class="comment">/* Cierra el documento HTML */</span></div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>🎉 ¡Ejercicio Completado!</h3>
+                <p><strong>Este portafolio incluye:</strong></p>
+                <ul>
+                    <li>✅ Estructura HTML5 completa y correcta</li>
+                    <li>✅ Elementos semánticos (header, nav, main, section, article, aside, footer)</li>
+                    <li>✅ Navegación con anclas internas</li>
+                    <li>✅ Listas ordenadas y no ordenadas</li>
+                    <li>✅ Imágenes con alt</li>
+                    <li>✅ Tabla profesional con thead, tbody</li>
+                    <li>✅ Formulario completo con validación</li>
+                    <li>✅ Enlaces de email y teléfono</li>
+                    <li>✅ Código limpio y bien comentado</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter">Slide 13 de 14</div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 14: ERRORES COMUNES Y SOLUCIONES -->
+        <div class="slide">
+            <h2>🐛 Errores Comunes y Cómo Solucionarlos</h2>
+            
+            <div class="error" style="background-color: #ffe6e6; border-color: #dc3545;">
+                <h3>❌ Error 1: Olvidar cerrar etiquetas</h3>
+                <div class="code-container" style="margin-top: 15px;">
+<div class="code-line"><span class="comment">/* ⛔ INCORRECTO - Falta cerrar el párrafo */</span></div>
+<div class="code-line"><span class="tag">&lt;p&gt;</span><span class="text-content">Este texto no está cerrado</span></div>
+<div class="code-line"><span class="tag">&lt;p&gt;</span><span class="text-content">Otro párrafo</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* ✅ CORRECTO - Todas las etiquetas cerradas */</span></div>
+<div class="code-line"><span class="tag">&lt;p&gt;</span><span class="text-content">Este texto está cerrado correctamente</span><span class="tag">&lt;/p&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;p&gt;</span><span class="text-content">Otro párrafo</span><span class="tag">&lt;/p&gt;</span></div>
+                </div>
+            </div>
+            
+            <div class="error" style="background-color: #ffe6e6; border-color: #dc3545;">
+                <h3>❌ Error 2: Enlaces sin href o mal escritos</h3>
+                <div class="code-container" style="margin-top: 15px;">
+<div class="code-line"><span class="comment">/* ⛔ INCORRECTO - Sin comillas en href */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=contacto.html<span class="tag">&gt;</span><span class="text-content">Contacto</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* ⛔ INCORRECTO - Enlace externo sin https:// */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"google.com"</span><span class="tag">&gt;</span><span class="text-content">Google</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* ✅ CORRECTO - Con comillas y protocolo completo */</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"contacto.html"</span><span class="tag">&gt;</span><span class="text-content">Contacto</span><span class="tag">&lt;/a&gt;</span></div>
+<div class="code-line"><span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://google.com"</span><span class="tag">&gt;</span><span class="text-content">Google</span><span class="tag">&lt;/a&gt;</span></div>
+                </div>
+            </div>
+            
+            <div class="error" style="background-color: #ffe6e6; border-color: #dc3545;">
+                <h3>❌ Error 3: Imágenes sin atributo alt</h3>
+                <div class="code-container" style="margin-top: 15px;">
+<div class="code-line"><span class="comment">/* ⛔ INCORRECTO - Sin alt (malo para accesibilidad) */</span></div>
+<div class="code-line"><span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"foto.jpg"</span><span class="tag">&gt;</span></div>
+<div class="code-line"></div>
+<div class="code-line"><span class="comment">/* ✅ CORRECTO - Con alt descriptivo */</span></div>
+<div class="code-line"><span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"foto.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Persona sonriendo en la playa"</span><span class="tag">&gt;</span></div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h3>🔍 Cómo Detectar Errores:</h3>
+                <ul>
+                    <li><strong>Usa el inspector del navegador</strong> - F12 o clic derecho > Inspeccionar</li>
+                    <li><strong>Busca errores en la consola</strong> - Aparecen en rojo</li>
+                    <li><strong>Valida tu HTML</strong> - Usa validator.w3.org</li>
+                    <li><strong>Indenta correctamente</strong> - Los errores se ven más fácil</li>
+                    <li><strong>Revisa línea por línea</strong> - Si algo no funciona, busca etiquetas sin cerrar</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 15: HERRAMIENTAS ÚTILES -->
+        <div class="slide">
+            <h2>🛠️ Herramientas Útiles para Desarrolladores</h2>
+            
+            <h3>💻 Editores de Código (Elige uno)</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Visual Studio Code (VS Code)</strong> - ⭐ MÁS RECOMENDADO
+                        <ul>
+                            <li>✅ Gratuito y muy popular</li>
+                            <li>✅ Extensiones para HTML, CSS, JavaScript</li>
+                            <li>✅ Autocompletado inteligente</li>
+                            <li>✅ Terminal integrada</li>
+                            <li>🔗 code.visualstudio.com</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sublime Text</strong> - Rápido y liviano</li>
+                    <li><strong>Atom</strong> - Open source de GitHub</li>
+                </ul>
+            </div>
+            
+            <h3>🌐 Navegadores con Herramientas de Desarrollo</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Google Chrome DevTools</strong> - Presiona F12
+                        <ul>
+                            <li>✅ Inspector de elementos (ver y editar HTML en vivo)</li>
+                            <li>✅ Consola para ver errores</li>
+                            <li>✅ Vista responsive para móviles</li>
+                        </ul>
+                    </li>
+                    <li><strong>Firefox Developer Tools</strong> - Presiona F12</li>
+                </ul>
+            </div>
+            
+            <h3>✔️ Validadores y Verificadores</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>W3C Markup Validator</strong>
+                        <ul>
+                            <li>🔗 validator.w3.org</li>
+                            <li>✅ Verifica si tu HTML es correcto</li>
+                            <li>✅ Detecta errores de sintaxis</li>
+                        </ul>
+                    </li>
+                    <li><strong>Can I Use</strong>
+                        <ul>
+                            <li>🔗 caniuse.com</li>
+                            <li>✅ Verifica compatibilidad de navegadores</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>📚 Extensiones Útiles para VS Code</h3>
+            <div class="tip-box">
+                <ul>
+                    <li><strong>Live Server</strong> - Recarga automática al guardar cambios</li>
+                    <li><strong>Prettier</strong> - Formatea tu código automáticamente</li>
+                    <li><strong>HTML CSS Support</strong> - Autocompletado mejorado</li>
+                    <li><strong>Auto Rename Tag</strong> - Cambia etiquetas de apertura y cierre juntas</li>
+                    <li><strong>Color Highlight</strong> - Visualiza colores en el código</li>
+                </ul>
+            </div>
+            
+            <h3>🎨 Herramientas Online Útiles</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>CodePen.io</strong> - Editor online para practicar</li>
+                    <li><strong>GitHub Pages</strong> - Publica tu sitio gratis</li>
+                    <li><strong>Placeholder.com</strong> - Imágenes de prueba</li>
+                    <li><strong>Google Fonts</strong> - Tipografías gratuitas</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 16: RECURSOS DE APRENDIZAJE -->
+        <div class="slide">
+            <h2>📖 Recursos para Seguir Aprendiendo</h2>
+            
+            <h3>🎓 Plataformas de Aprendizaje Gratuitas</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>freeCodeCamp</strong> - 🔗 freecodecamp.org
+                        <ul>
+                            <li>✅ 100% gratis con certificados</li>
+                            <li>✅ Proyectos prácticos</li>
+                            <li>✅ Comunidad activa en español</li>
+                        </ul>
+                    </li>
+                    <li><strong>MDN Web Docs (Mozilla)</strong> - 🔗 developer.mozilla.org
+                        <ul>
+                            <li>✅ Documentación oficial de HTML/CSS/JS</li>
+                            <li>✅ Explicaciones detalladas</li>
+                            <li>✅ Ejemplos interactivos</li>
+                        </ul>
+                    </li>
+                    <li><strong>W3Schools</strong> - 🔗 w3schools.com
+                        <ul>
+                            <li>✅ Tutoriales paso a paso</li>
+                            <li>✅ Editor online para practicar</li>
+                            <li>✅ Ejercicios y quizzes</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>🎬 Canales de YouTube en Español</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Fazt</strong> - Tutoriales de programación completos</li>
+                    <li><strong>MoureDev</strong> - Desarrollo web y móvil</li>
+                    <li><strong>midudev</strong> - JavaScript y React</li>
+                    <li><strong>Píldoras Informáticas</strong> - HTML, CSS, JavaScript</li>
+                    <li><strong>Código Facilito</strong> - Cursos completos gratuitos</li>
+                </ul>
+            </div>
+            
+            <h3>💬 Comunidades y Foros</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Stack Overflow en Español</strong> - es.stackoverflow.com
+                        <ul>
+                            <li>✅ Resuelve dudas específicas</li>
+                            <li>✅ Busca errores y soluciones</li>
+                        </ul>
+                    </li>
+                    <li><strong>Discord de Programación</strong>
+                        <ul>
+                            <li>✅ Comunidades de desarrolladores</li>
+                            <li>✅ Ayuda en tiempo real</li>
+                        </ul>
+                    </li>
+                    <li><strong>Reddit r/learnprogramming</strong>
+                        <ul>
+                            <li>✅ Consejos y recursos</li>
+                            <li>✅ Comparte tu progreso</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>📝 Práctica con Retos de Código</h3>
+            <div class="tip-box">
+                <ul>
+                    <li><strong>Frontend Mentor</strong> - frontendmentor.io
+                        <ul>
+                            <li>✅ Diseños reales para practicar</li>
+                            <li>✅ Feedback de la comunidad</li>
+                        </ul>
+                    </li>
+                    <li><strong>Codewars</strong> - codewars.com
+                        <ul>
+                            <li>✅ Retos de programación</li>
+                            <li>✅ Sistema de ranking</li>
+                        </ul>
+                    </li>
+                    <li><strong>CSS Battle</strong> - cssbattle.dev
+                        <ul>
+                            <li>✅ Practica CSS de forma divertida</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>📚 Libros Recomendados (Gratuitos Online)</h3>
+            <div class="example-box">
+                <ul>
+                    <li><strong>"Eloquent JavaScript"</strong> - eloquentjavascript.net (español)</li>
+                    <li><strong>"HTML5 + CSS3"</strong> - Diversos tutoriales en MDN</li>
+                    <li><strong>GitHub Learning Lab</strong> - Cursos interactivos</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <h3>💡 Consejo de Oro:</h3>
+                <p><strong>La mejor forma de aprender es PRACTICANDO.</strong> No solo veas tutoriales, ¡construye proyectos reales! Cada error que cometas te enseñará más que 10 tutoriales.</p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="nextSlide()">Siguiente ➡️</button>
+            </div>
+        </div>
+        
+        <!-- SLIDE 17: CIERRE Y PRÓXIMOS PASOS -->
+        <div class="slide">
+            <h2>🎓 ¡Felicitaciones!</h2>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3 style="color: #667eea; font-size: 2em;">Has completado la Masterclass HTML</h3>
+            </div>
+            
+            <div class="tip-box" style="margin-top: 40px;">
+                <h3>✅ Lo que ahora sabes hacer:</h3>
+                <ul>
+                    <li>📄 Crear estructura HTML5 profesional</li>
+                    <li>📝 Organizar contenido con párrafos y listas</li>
+                    <li>🔗 Crear enlaces (externos, internos, anclas, email, teléfono)</li>
+                    <li>🖼️ Insertar imágenes, videos y audio</li>
+                    <li>📋 Desarrollar formularios interactivos</li>
+                    <li>📊 Construir tablas de datos</li>
+                    <li>🏗️ Usar elementos semánticos (header, nav, main, section, footer)</li>
+                    <li>💼 Crear un portafolio web completo</li>
+                </ul>
+            </div>
+            
+            <div class="example-box" style="margin-top: 30px;">
+                <h3>🚀 Próximos Pasos en tu Aprendizaje:</h3>
+                <ol>
+                    <li><strong>Practica el ejercicio integrador</strong> - Hazlo tu portafolio real</li>
+                    <li><strong>Personaliza tu proyecto</strong> - Agrega tu información y estilo</li>
+                    <li><strong>Aprende CSS</strong> - Dale diseño y colores a tu HTML</li>
+                    <li><strong>Estudia JavaScript</strong> - Agrega interactividad</li>
+                    <li><strong>Publica tu sitio</strong> - Compártelo en GitHub Pages</li>
+                </ol>
+            </div>
+            
+            <div class="warning-box" style="margin-top: 30px;">
+                <h3>💡 Consejos Finales:</h3>
+                <ul>
+                    <li><strong>Practica diariamente</strong> - La constancia es clave</li>
+                    <li><strong>Construye proyectos reales</strong> - Aplica lo aprendido</li>
+                    <li><strong>Lee código de otros</strong> - Aprende buenas prácticas</li>
+                    <li><strong>Valida tu HTML</strong> - Usa herramientas como W3C Validator</li>
+                    <li><strong>Pide feedback</strong> - Comparte tu código con otros</li>
+                    <li><strong>No te rindas</strong> - Todos los programadores empezaron aquí</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h2 style="color: white; border: none; margin-bottom: 15px;">¡Tu viaje como desarrollador web apenas comienza!</h2>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Recuerda: Cada experto fue una vez un principiante.</p>
+                <p style="font-size: 1.5em;">🚀 ¡Sigue programando y creando! 💻</p>
+            </div>
+            
+            <div class="navigation">
+                <button onclick="prevSlide()">⬅️ Anterior</button>
+                <div class="slide-counter"></div>
+                <button onclick="showSlide(0)">🔄 Volver al Inicio</button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        // Update all slide counters
+        function updateCounters() {
+            const counters = document.querySelectorAll('.slide-counter');
+            counters.forEach((counter, index) => {
+                counter.textContent = `Slide ${index + 1} de ${totalSlides}`;
+            });
+        }
+        
+        updateCounters();
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>

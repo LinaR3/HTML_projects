@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/f5644106e7.js" crossorigin="anonymous"></script>
+    <!-- Enlace a la hoja de estilos externa -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,6 +17,7 @@
         <header class="text-center mb-4 p-4 bg-white rounded shadow-sm">
             <h1 class="display-4">Lina Reina</h1>
             <p class="lead">Aqui te presento un poco de mis avances como dev</p>
+        </header>
         </header>
 
         <!-- Pestañas de Navegación -->
@@ -35,7 +37,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="todolist-tab" data-bs-toggle="tab" data-bs-target="#todolist-pane"
                     type="button" role="tab" aria-controls="todolist-pane" aria-selected="false">
-                    <i class="fas fa-list-check me-1"></i> Nuevo proyecto 
+                    <i class="fas fa-list-check me-1"></i> Nuevo proyecto
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -52,38 +54,53 @@
             <!-- PESTAÑA 1: PERFIL PROFESIONAL-->
             <div class="tab-pane fade show active" id="profile-pane" role="tabpanel" aria-labelledby="profile-tab"
                 tabindex="0">
-                <header class="text-center my-4">
-                    <h1>Hola, mi nombre es Lina Reina</h1>
-                    <p class="lead">Estudiante de programación y desarrolladora web</p>
-                    <nav class="menu">
+                <div class="my-4">
+                    <div
+                        class="d-flex align-items-center justify-content-center flex-wrap gap-4 text-center text-md-start mb-4">
+                        <img src="src/assets/images/Portafolio/Imagen portafolio/ImagenDePerfilProfesional.png"
+                            alt="Imagen de perfil" class="rounded-circle"
+                            style="width: 150px; height: 150px; object-fit: cover;">
+                        <div>
+                            <h1 class="mb-0">Hola, mi nombre es Lina Reina</h1>
+                            <p class="lead">Estudiante de programación y desarrolladora web</p>
+                        </div>
+                    </div>
+                    <nav class="menu mt-3">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link" href="#about-me">About me</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#Habilidades">Habilidades</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#Proyectos">Proyectos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#Educacion">Educacion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#aboutMe">About me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#LenguajesDeProgramacion">Lenguajes de
+                                    programacion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#VideosDeProyectos">Videos de Proyectos</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#MiFormaciónAcadémica">Mi Formación Académica</a>
+                            </li>
                         </ul>
                     </nav>
-                </header>
+                </div>
                 <hr>
                 <main>
-                    <article id="about-me" class="mb-4">
+                    <article id="aboutMe" class="mb-4">
                         <h2>Sobre Mí</h2>
                         <p>
-                            Soy una desarrolladora de software especializada en Python, con experiencia en la creación
+                            Soy una desarrolladora de software especializada en Python, con experiencia en
+                            la creación
                             de
-                            aplicaciones web robustas y escalables. Mi pasión por la programación me ha llevado a
+                            aplicaciones web robustas y escalables. Mi pasión por la programación me ha
+                            llevado a
                             dominar frameworks
-                            como Django y Flask, con los que construyo soluciones eficientes y a la medida. Me
+                            como Django y Flask, con los que construyo soluciones eficientes y a la medida.
+                            Me
                             entusiasma enfrentar
-                            nuevos desafíos, siempre buscando aprender y aplicar las mejores prácticas para entregar
+                            nuevos desafíos, siempre buscando aprender y aplicar las mejores prácticas para
+                            entregar
                             proyectos de
-                            alta calidad. Cuando no estoy programando, me dedico a mejorar mi flujo de trabajo en Git
+                            alta calidad. Cuando no estoy programando, me dedico a mejorar mi flujo de
+                            trabajo en Git
                             para colaborar
                             de manera más efectiva y mantener un control total sobre mis proyectos.
                         </p>
-                        <img src="src/assets/images/Portafolio/Imagen portafolio/image.png" alt="Imagen de perfil"
-                            class="img-fluid rounded my-3" style="max-width: 200px;">
-                        <p>Tambien he sido Productora musical de distintos exitos, entre los cuales se encuentra:</p>
+                        <p>Tambien he sido Productora musical de distintos exitos, entre los cuales se
+                            encuentra:</p>
                         <p>Puedes seguir mi perfil en Spotify:</p>
                         <iframe data-testid="embed-iframe" style="border-radius:12px"
                             src="https://open.spotify.com/embed/artist/2G1e4GLy7AKkTHaBdLfGoO?utm_source=generator&theme=0"
@@ -98,146 +115,197 @@
                             loading="lazy"></iframe>
                     </article>
                     <hr>
-                    <article id="Habilidades" class="mb-4">
-                        <h2>Habilidades</h2>
-                        <ul>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>Python</li>
-                            <li>Django</li>
-                            <li>Produccion Musical</li>
-                            <li>Dj</li>
+                    <article id="LenguajesDeProgramacion" class="mb-4">
+                        <h2>Lenguajes de programacion</h2>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fa-brands fa-html5 fa-2x me-3" style="color: #E34F26;"></i>
+                                <span class="fs-5">HTML</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fa-brands fa-css3-alt fa-2x me-3" style="color: #1572B6;"></i>
+                                <span class="fs-5">CSS</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fa-brands fa-python fa-2x me-3" style="color: #3776AB;"></i>
+                                <span class="fs-5">Python</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32px"
+                                    height="32px" class="me-3">
+                                    <title>Django</title>
+                                    <path fill="#092E20"
+                                        d="M15.36 15.36V8.64H24V24H8.64V15.36h6.72zM0 0v24h8.64V8.64H0V0zm15.36 0v8.64H8.64V0h6.72z" />
+                                </svg>
+                                <span class="fs-5">Django</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fa-solid fa-music fa-2x me-3" style="color: #1DB954;"></i>
+                                <span class="fs-5">Producción Musical</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fa-solid fa-headphones fa-2x me-3" style="color: #6c757d;"></i>
+                                <span class="fs-5">DJ</span>
+                            </li>
                         </ul>
                     </article>
                     <hr>
-                    <article id="Proyectos" class="mb-4">
-                        <h2>Proyectos</h2>
-                        <p> Proyecto Generador de excusas</p>
-                        <p><img src="src/assets/images/Portafolio/Imagen portafolio/10km de seriedad.png"
-                                alt="10km de seriedad" width="400" height="400" class="img-fluid rounded"></p>
-                        <div class="ratio ratio-16x9 mt-3">
-                            <iframe src="https://www.youtube.com/embed/Vk15Jbpp6mI?si=PvlEh-GoNgW_F9oz"
-                                title="YouTube video player" allowfullscreen></iframe>
+                    <article id="VideosDeProyectos" class="mb-4">
+                        <h2>Videos de Proyectos</h2>
+                        <p> Proyecto Generador de excusas Tutorial</p>
+                        <p>Explicare a fondo como se desarrollo el proyecto, empezare con un tutorial de como realizar
+                            con JavaScrip una funcion aleatoria </p>
+                        <div class="row g-4 mt-3">
+                            <!-- Video 1 -->
+                            <p> Video tutorial: </p>
+                            <div class="col-md-6">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/Vk15Jbpp6mI?si=PvlEh-GoNgW_F9oz"
+                                        title="YouTube video player 1" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <!-- Video 2 -->
+                            <p> Proyecto Generador de excusas explicacion de todo el proyecto</p>
+                            <div class="col-md-6">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/Vk15Jbpp6mI?si=PvlEh-GoNgW_F9oz"
+                                        title="YouTube video player 2" allowfullscreen></iframe>
+                                </div>
+                            </div>
                         </div>
                     </article>
                     <hr>
-                    <article id="Educacion" class="mb-4">
-                        <h2>Educacion</h2>
+                    <article id="MiFormaciónAcadémica" class="mb-4">
+                        <h2>Mi Formación Académica</h2>
+                        <p class="text-muted fst-italic">Estudios realizados</p>
                         <table class="table table-striped table-bordered">
-                            <caption>Mi Formación Académica</caption>
                             <thead class="table-dark">
-                                <tr>
-                                    <th>Institución</th>
-                                    <th>Título o Certificación</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>MINTIC - Software developer</td>
-                                    <td>Full Stack Developer</td>
-                                </tr>
-                                <tr>
-                                    <td>Bootcamp</td>
-                                    <td>Software developer</td>
-                                </tr>
-                                <tr>
-                                    <td>Escuela de audio y Sonido</td>
-                                    <td>Producción Musical</td>
-                                </tr>
-                                <tr>
-                                    <td>Dj academy</td>
-                                    <td>Dj</td>
-                                </tr>
-                                <tr>
-                                    <td>Universidad de la Salle</td>
-                                    <td>Trabajo social</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <th>Institución</th>
+                                        <th>Título o Certificación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>MINTIC - Software developer</td>
+                                        <td>Full Stack Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bootcamp</td>
+                                        <td>Software developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Escuela de audio y Sonido</td>
+                                        <td>Producción Musical</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dj academy</td>
+                                        <td>Dj</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Universidad de la Salle</td>
+                                        <td>Trabajo social</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                     </article>
                 </main>
             </div>
 
-            <!-- PESTAÑA 2: Ejercicio CSS para crear una tarjeta (LINA INTEGRE SUS PROYECTOS CREADOS COMO SI FUESEN UN PRODUCTO)-->
+            <!-- PESTAÑA 2: PROYECTOS -->
             <div class="tab-pane fade" id="product-pane" role="tabpanel" aria-labelledby="product-tab" tabindex="0">
-                <div class="text-center">
-                    <h2 class="mb-4">Proyecto 2: Tarjeta de Producto</h2>
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <!--Tarjeta de proyectos tipo Shop-->
                     <div class="product-card">
-                        <img src="https://placehold.co/300x200/6c757d/white?text=Producto" alt="Imagen del producto">
-                        <h2>Nombre del Producto</h2>
-                        <p>Aquí va una breve descripción del producto para atraer al cliente.</p>
-                        <p class="price"><strong>Precio: $99.99</strong></p>
-                        <button class="btn btn-primary">Añadir al carrito</button>
+                        <img src="src/assets/images/Portafolio/Imagen portafolio/10kmDeSeriedad.png"
+                            alt="Proyecto Generador de Excusas">
+                        <h2>Generador de Excusas</h2>
+                        <p>Este proyecto genera excusas aleatorias. ¡Perfecto para cualquier ocasión!</p>
+                        <p class="price"><strong>Proyecto Personal</strong></p>
+                        <button class="btn btn-primary">Ver en GitHub</button>
                     </div>
+
+                    <!-- Tarjeta de Producto 2 -->
+                    <div class="product-card">
+                        <img src="src/assets/images/Portafolio/Imagen portafolio/ToDoList_BunnyStyle.png"
+                            alt="ToDoList">
+                        <h2>ToDoList BunnyStyle</h2>
+                        <p>Una aplicación de lista de tareas con un diseño divertido y amigable.</p>
+                        <p class="price"><strong>Próximamente</strong></p>
+                        <button class="btn btn-secondary" disabled>No disponible</button>
+                    </div>
+
+
                 </div>
             </div>
 
-            <!-- PESTAÑA 3: TODOLIST o cualquier otro contenido que creemos -->
-            <div class="tab-pane fade" id="todolist-pane" role="tabpanel" aria-labelledby="todolist-tab" tabindex="0">
-                <div class="text-center py-5">
-                    <h1 class="display-3">ToDoList</h1>
-                    <p class="lead">(Próximamente...)</p>
-                </div>
-            </div>
-
-            <!-- PESTAÑA 4: CONTACTAME -->
-            <div class="tab-pane fade" id="contact-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                <article>
-                    <h2>Contacto</h2>
-                    <p>¿Te gustaría contactarme? Llena el siguiente formulario con tus preguntas.</p>
-                    <form action="/enviar" method="POST">
-                        <fieldset class="mb-3">
-                            <legend>Información personal</legend>
-                            <div class="mb-2">
-                                <label for="nombre" class="form-label">Nombre:</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="ciudad" class="form-label">Ciudad:</label>
-                                <select id="ciudad" name="ciudad" class="form-select">
-                                    <option value="">-- Selecciona --</option>
-                                    <option value="medellin">Medellín</option>
-                                    <option value="bogota">Bogotá</option>
-                                </select>
-                            </div>
-                        </fieldset>
-                        <fieldset class="mb-3">
-                            <legend>Tu mensaje</legend>
-                            <label for="mensaje" class="form-label">Mensaje:</label>
-                            <textarea id="mensaje" name="mensaje" rows="4" class="form-control"></textarea>
-                        </fieldset>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" id="terminos" name="terminos" class="form-check-input" required>
-                            <label for="terminos" class="form-check-label">Acepto los términos y condiciones</label>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
-                    </form>
-                </article>
-                <hr>
-                <article>
-                    <h2> Puedes encontrarme en: </h2>
-                    <p> Ubicacion:</p>
-                    <div class="ratio ratio-16x9">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.73961650311!2d-75.5812115!3d6.24420345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1761008708488!5m2!1ses!2sco"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </article>
-            </div>
         </div>
-        <footer class="text-center mt-4 text-muted">
-            <p>&copy; 2025 Lina Reina</p>
-        </footer>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- PESTAÑA 3: NUEVO PROYECTO -->
+    <div class="tab-pane fade" id="todolist-pane" role="tabpanel" aria-labelledby="todolist-tab" tabindex="0">
+        <div class="text-center py-5">
+            <h1 class="display-3">Nuevo Proyecto</h1>
+            <p class="lead">(Próximamente...)</p>
+        </div>
+    </div>
+
+    <!-- PESTAÑA 4: CONTACTAME -->
+    <div class="tab-pane fade" id="contact-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <article>
+            <h2>Contacto</h2>
+            <p>¿Te gustaría contactarme? Llena el siguiente formulario con tus preguntas.</p>
+            <form action="/enviar" method="POST">
+                <fieldset class="mb-3">
+                    <legend>Información personal</legend>
+                    <div class="mb-2">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="ciudad" class="form-label">Ciudad:</label>
+                        <select id="ciudad" name="ciudad" class="form-select">
+                            <option value="">-- Selecciona --</option>
+                            <option value="medellin">Medellín</option>
+                            <option value="bogota">Bogotá</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset class="mb-3">
+                    <legend>Tu mensaje</legend>
+                    <label for="mensaje" class="form-label">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" class="form-control"></textarea>
+                </fieldset>
+                <div class="form-check mb-3">
+                    <input type="checkbox" id="terminos" name="terminos" class="form-check-input" required>
+                    <label for="terminos" class="form-check-label">Acepto los términos y condiciones</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </article>
+        <hr>
+        <article>
+            <h2> Puedes encontrarme en: </h2>
+            <p> Ubicacion:</p>
+            <div class="ratio ratio-16x9">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d126916.73961650311!2d-75.5812115!3d6.24420345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1761008708488!5m2!1ses!2sco"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </article>
+    </div>
+    </div>
+    <footer class="text-center mt-4 text-muted">
+        <p>Made with Love by LinaR3 on GitHub</p>
+    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
